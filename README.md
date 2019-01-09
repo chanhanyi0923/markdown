@@ -6,9 +6,9 @@
 
 ## jar
 
-https://pan.zju.edu.cn/share/76be37cd06b447ad01e2df7af0
+https://pan.zju.edu.cn/share/c99129882ee35058548cf986df
 
-https://github.com/chanhanyi0923/markdown/releases/download/1.0/MarkdownEditor.jar
+https://github.com/chanhanyi0923/markdown/releases/download/1.1/MarkdownEditor-3160100052.jar
 
 
 
@@ -100,4 +100,6 @@ JavaFX提供了一个元件```WebView```，可以实现简单的HTML渲染，每
   https://commonmark.org/
 - Apache Commons VFS － Commons Virtual File System
   https://commons.apache.org/proper/commons-vfs/
+- jsoup: Java HTML Parser
+  https://jsoup.org
 
