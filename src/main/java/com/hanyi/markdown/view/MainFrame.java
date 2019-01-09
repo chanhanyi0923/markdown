@@ -16,6 +16,7 @@ public class MainFrame extends JFrame {
   private TextAreaPanel textAreaPanel;
   private MenuBar menuBar;
   private WebPanel webPanel;
+  private ContentsPanel contentsPanel;
   private FilePanel filePanel;
 
   public MainFrame(String title, Text text, TextFile textFile) {
@@ -47,10 +48,19 @@ public class MainFrame extends JFrame {
     final Dimension textAreaSize = this.textAreaPanel.getSize();
 
     // add web (preview) panel
-    this.webPanel = new WebPanel(text);
+    this.contentsPanel = new ContentsPanel();
+    this.contentsPanel.setPreferredSize(new Dimension(100, textAreaSize.height));
+    this.webPanel = new WebPanel(text, this.contentsPanel);
     this.webPanel.setPreferredSize(textAreaSize);
-    this.add(this.webPanel, BorderLayout.EAST);
+//    this.add(this.webPanel, BorderLayout.EAST);
+//    this.pack();
+    JPanel right = new JPanel();
+    right.setLayout(new BorderLayout());
+    right.add(this.webPanel, BorderLayout.WEST);
+    right.add(this.contentsPanel, BorderLayout.EAST);
+    this.add(right, BorderLayout.EAST);
     this.pack();
+
 
     // add file panel
     this.filePanel = new FilePanel(textFile);

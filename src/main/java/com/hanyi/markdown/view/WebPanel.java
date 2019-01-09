@@ -9,13 +9,19 @@ import javax.swing.SwingUtilities;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class WebPanel extends JFXPanel {
 
   private Text text;
   private WebView webView;
+  private ContentsPanel contentsPanel;
 
-  public WebPanel(Text text) {
+  public WebPanel(Text text, ContentsPanel contentsPanel) {
+    this.contentsPanel = contentsPanel;
     this.text = text;
     this.text.setWebPanel(this);
     this.setSceneLater();
@@ -44,5 +50,14 @@ public class WebPanel extends JFXPanel {
         webView.getEngine().loadContent(html);
       }
     });
+
+    getTableOfContent(html);
+  }
+
+  private void getTableOfContent(String html) {
+    Document document = Jsoup.parse(html);
+    Element body = document.body();
+    Elements headers = body.select("h1, h2, h3, h4, h5, h6");
+    contentsPanel.updateContent(headers.outerHtml());
   }
 }

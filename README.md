@@ -17,13 +17,6 @@ https://github.com/chanhanyi0923/markdown/releases/download/1.0/MarkdownEditor.j
 ![demo1](demo1.png)
 
 
-![demo2](demo2.png)
-
-
-![demo3](demo3.png)
-
-
-
 ## 功能简述
 
 依照课程要求，本次作业实现了以下功能：
@@ -94,7 +87,9 @@ Apache的VFS(Virtual File System, 虚拟文件系统)类实现了```FileChangeEv
 
 JavaFX提供了一个元件```WebView```，可以实现简单的HTML渲染，每次内容更新之後也一并更新```WebView```的内容。
 
+3. 建立实时文档目录
 
+每次更新完```WebView```顺便用```jsoup```把渲染出的html用selector选h1到h6，放到第二个WebView。
 
 ## 第三方库
 
